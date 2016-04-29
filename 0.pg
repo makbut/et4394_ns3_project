@@ -1,0 +1,22 @@
+#!/usr/bin/gnuplot
+reset
+set terminal png
+
+set xlabel "Distance (m)"
+set xrange [0:265]
+
+
+set ylabel "Throughput (Mbps)"
+set yrange [0:5]
+
+
+set title "Traffic vs Distance"
+set key reverse Left outside
+set grid
+
+set style data linespoints
+
+plot "final1.txt" every ::0::26 using 1:4 title "RxG=0, RnF=0", \
+"" every ::27::53 using 1:4 title "RxG=0, RnF=10", \
+"" every ::54::80 using 1:4 title "RxG=0, RnF=20" 
+#
