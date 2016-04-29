@@ -1,0 +1,22 @@
+#!/usr/bin/gnuplot
+reset
+set terminal png
+
+set xlabel "Number of Nodes"
+set xrange [0:30]
+
+
+set ylabel "Mac Throughput (Mbps)"
+set yrange [0:3]
+
+
+set title "Throughput vs Nodes"
+set key reverse Left outside
+set grid
+
+set style data linespoints
+
+plot "final2.txt" every ::0::14 using 1:4 title "Packet Size=256", \
+"" every ::15::29 using 1:4 title "Packet Size=512", \
+"" every ::30::44 using 1:4 title "Packet Size=1024" 
+#
